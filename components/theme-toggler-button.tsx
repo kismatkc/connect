@@ -16,7 +16,7 @@ const ThemeToggleButton = ({}) => {
     <Button
       variant="outline"
       size="icon"
-      className="rounded-full bg-[rgb(228,230,235)] dark:bg-[rgb(255,255,255,.1)]"
+      className="rounded-full bg-[rgb(228,230,235)] dark:bg-[rgb(255,255,255,.1)] size-10 "
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? (
