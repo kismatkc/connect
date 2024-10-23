@@ -7,22 +7,22 @@ const FacebookMessengerIcon = ({}) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0" />
+      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
 
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
 
       <g id="SVGRepo_iconCarrier">
         {" "}
         <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100.001%">
           {" "}
-          <stop offset="0" stop-color="#000000b2ff" />{" "}
-          <stop offset="1" stop-color="#000000" />{" "}
+          <stop offset="0" stopColor="#000000b2ff" />{" "}
+          <stop offset="1" stopColor="#000000" />{" "}
         </linearGradient>{" "}
-        <g fill="black" fill-rule="evenodd">
+        <g fill="black"fillRule="evenodd">
           {" "}
           <path d="M250 50.201c-112.676 0-200 82.452-200 193.81 0 58.25 23.903 108.582 62.817 143.356 3.26 2.935 5.231 6.995 5.392 11.377l1.087 35.537c.362 11.337 12.072 18.694 22.455 14.151l39.678-17.487a15.974 15.974 0 0 1 10.664-.804c18.229 5.025 37.666 7.678 57.907 7.678 112.676 0 200-82.452 200-193.809S362.676 50.201 250 50.201z" />{" "}
           <path
