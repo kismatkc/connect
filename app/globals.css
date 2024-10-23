@@ -12,6 +12,23 @@ body {
   }
 }
 
+@layer components {
+  .border-dark {
+    @apply dark:border-[rgb(255,255,255,.2)] border-[1px];
+  }
+
+  .border-light {
+    @apply border-[1px] border-[rgb(0,0,0,.2)];
+  }
+
+  .container-bg-dark {
+    @apply dark:bg-[rgb(28,30,33)];
+  }
+  .container-bg-light {
+    @apply bg-[rgb(255,255,255)];
+  }
+}
+
 @layer base {
   :root {
     --background: 216, 20%, 95.1%;

@@ -13,7 +13,7 @@ const Header = () => {
 
   if (!mounted) return null;
   return (
-    <header className="flex justify-between bg-container-bg-light dark:bg-container-bg-dark  p-2 border-[1px] border-[rgb(0,0,0,.2)] dark:border-[rgb(255,255,255,.2)] gap-x-2">
+    <header className="flex justify-between container-bg-light dark:container-bg-dark  p-2 border-light border-dark gap-x-2">
       <SearchBar />
       <div className="flex gap-x-2 justify-end items-center ">
         <button className="rounded-full bg-icon-bg-light dark:bg-icon-bg-dark size-10 pl-2.5">

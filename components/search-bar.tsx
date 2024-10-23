@@ -8,8 +8,12 @@ const SearchBar = () => {
   const { theme } = useTheme();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [typing, setTyping] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
     if (!showSearchBar) return;
+if(inputRef.current){
+  inputRef.current.focus()
+}
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setShowSearchBar(false);
@@ -23,13 +27,13 @@ const SearchBar = () => {
   }, [showSearchBar]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       {/* Search Input View */}
       <div
-        className={`absolute w-full transform transition-all duration-200 ease-in-out ${
+        className={`absolute  w-full transform transition-all duration-200 ease-in-out ${
           showSearchBar
             ? "translate-x-0 opacity-100"
-            : "translate-x-full opacity-0 pointer-events-none"
+            : "translate-x-[100%] opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex gap-x-5 grow justify-start items-center">
@@ -52,11 +56,11 @@ const SearchBar = () => {
             />
             <input
               className="w-full border rounded-3xl py-2 px-4 pl-10 
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 
+                         focus:outline-none
                          dark:bg-gray-800 dark:border-gray-700
-                         transition-all duration-200"
+                         transition-colors duration-200"
               placeholder="Search Connect"
-              autoFocus
+              ref={inputRef}
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 if (!e.target.value) return setTyping(false);
                 setTyping(true);
@@ -70,7 +74,7 @@ const SearchBar = () => {
       <div
         className={`transform transition-all duration-200 ease-in-out ${
           showSearchBar
-            ? "-translate-x-full opacity-0 pointer-events-none"
+            ? "translate-x-[-100%] opacity-0 pointer-events-none"
             : "translate-x-0 opacity-100"
         }`}
       >
