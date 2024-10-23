@@ -1,4 +1,3 @@
-import { Video } from "lucide-react";
 import React from "react";
 
 const CreatePost = () => {
