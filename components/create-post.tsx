@@ -12,6 +12,7 @@ const CreatePost = () => {
                          transition-colors duration-200 bg-icon-bg-light dark:bg-icon-bg-dark mr-3"
           placeholder="What's on your mind, username?"
         />
+        
       </div>
       <div className="flex justify-around p-2.5">
         <button>

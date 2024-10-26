@@ -1,5 +1,6 @@
 import CreatePost from "@/components/create-post";
 import Header from "@/components/Header";
+import Posts from "@/components/posts";
 import StoryCarousal from "@/components/story-carousal";
 
 const Home = ({}) => {
@@ -8,6 +9,7 @@ const Home = ({}) => {
       <Header />
       <CreatePost />
       <StoryCarousal />
+      <Posts/>
     
     </>
   );

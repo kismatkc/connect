@@ -14,7 +14,7 @@ const StoryCarousal = () => {
      opts={{
        align: "start",
      }}
-     className="w-full max-w-sm pl-8"
+     className="w-full max-w-sm my-4"
    >
      <CarouselContent >
        {Array.from({ length: 5 }).map((_, index) => (
