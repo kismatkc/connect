@@ -5,7 +5,7 @@ import CommentSection from "./comment-section";
 
 const Posts = () => {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col icon-bg-light dark:icon-bg-dark dark:container-bg-dark container-bg-light mb-4">
       <CardHeader className="flex flex-col">
         <div className="flex justify-between items-center mb-2">
           <figure className="flex gap-x-2 items-center">

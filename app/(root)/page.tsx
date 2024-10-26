@@ -10,6 +10,8 @@ const Home = ({}) => {
       <CreatePost />
       <StoryCarousal />
       <Posts/>
+      <Posts/>
+      <Posts/>
     
     </>
   );
