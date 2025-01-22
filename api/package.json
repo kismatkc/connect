@@ -1,0 +1,51 @@
+{
+  "name": "connect-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kismatkc/connect-fullstack.git#main"
+  },
+  "author": "kismat kc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kismatkc/connect-fullstack/issues"
+  },
+  "homepage": "https://github.com/kismatkc/connect-fullstack/tree/main#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "@types/pg": "^8.11.10",
+    "@types/sharp": "^0.32.0",
+    "@types/socket.io": "^3.0.1",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.1",
+    "bcrypt": "^5.1.1",
+    "convostack": "^0.0.58",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1",
+    "sharp": "^0.33.5",
+    "socket.io": "^4.8.1"
+  }
+}

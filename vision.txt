@@ -1,0 +1,317 @@
+CREATE TABLE users (
+    id UUID PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    dob DATE,
+    password_hash VARCHAR(255),
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    profile_picture_url TEXT,
+    gender VARCHAR(10),
+    city VARCHAR(200),
+    college VARCHAR(200)
+);
+
+pseudocode for showing which button
+button types
+1. addicon friend(add friend text)
+2. checkicon friend(request sent text)
+3. checkicon friend (friends text)
+
+1.makes a reqest to the server to see if
+a.relationship doesnot exist = addicon friend(add friend text)
+b.relationship exist ? see status 
+  case "pending"
+  checkicon friend(request sent text)
+  case "accepted"
+  checkicon friend (friends text)
+
+ 
+nov30
+nov 24
+
+
+today = nov 30
+i want two days only from nov 28
+
+
+
+to picl from 
+ nov27
+  nov26
+  nov 28
+  nov29
+
+ 
+  
+
+
+  visualiation 
+  users table 
+  id name age
+  1 kismat 10
+  2 anish 11
+  3 praman 12
+
+  friend_requests
+  id requester_id recipient_id status
+  hfh  1           3             accepted
+  hfh  1           2             pending
+  hfh  2           3             accepted
+
+
+  hfh  1           3             accepted join     1 kismat 10  if 1 matches 1  3 praman 12
+
+
+  hfh  1           3             accepted  3 praman 12
+
+
+
+
+
+
+
+posts,like and comment functionilty overview
+
+post table = {
+picture link,
+description,
+user infor(fk),
+created_at
+}
+
+picture - we wil use multer and sharp to store to the supabse
+
+like table
+like ={
+id,
+post reference(fk)
+user(fk),
+created_At
+}
+
+comments table
+
+comments ={
+id,
+post refernce(fk),
+user(fk),
+created_at,
+comment description
+}
+
+
+
+
+what picture size of what?
+
+my enitre webiste will be repsoive to
+till 640(defualt) 480px
+ddd
+
+
+posts
+
+
+we need to decide what data to feed to postData
+defualt postData = []
+scenarios
+1.path matches route postData = yourData
+2.path doesnot matches route postData = friendsData
+3.path  matches root postData = friendsData
+4.path not available postData = [] done
+
+
+
+
+
+
+Like ={
+  id: PK,UUID
+  postid: refrence the posts table (fk),
+  user: refences the user table (fk),
+  created at: dat eith time stamp
+
+}
+
+
+
+like functionilty pseudocode
+1.user clicks on the like button we create a Like row
+2.user clicks on the like button again we delete the Like created earlier
+3.using useeffect to track liked state and if user choses to  like use debouncing to cancel/commit like api call(5s)
+4.After ~5s we commit the call
+
+ scenarios and Edge cases 
+ 1.anything event under 5 sec is covered by useffect cleanup 
+ 2. if user choses to dislike after 5 sec it has to bypass a consion that acutal like was commited.So i will intruce a new state caleed likedCreated to track it.
+ if like likeCreated is tru than only you cna delte it after deltion set the liked and likedSUcces state to false
+
+
+like status
+1.post component mounts it also fetchs the status of like and until we have it it wont render post at all.if status  is not determiend it passes as props.
+2.how to determine the status?
+check if any row with  postId and useriD exist
+if yes then like state will be true 
+if no then like state will be false.
+
+
+likestatus controller
+so it receves the userId and postId and it chekcs if such row exist.
+if relation found it send 200 with data obejct(.single)
+if no rleation ofund it sends 404 with error so in client side in catch block if any error then it will defualt that to false.
+
+
+
+
+comments
+
+structure
+comment = {
+id pk,
+postId refrences posts tbale fk on delte cacade,
+userId refrences users table fk on delte cacade,
+description text,
+createdAt timestampz
+}
+
+ui logics
+1.we will use normal axios post request for creating comments.Upon succesful creation we will invalidte the query 
+2.we will use useQuery for fetching commets for responsiveness.Fetch with most recent one on the top 
+
+ui view
+1.If 0 comments show 
+No commets yet
+creating comment box
+2.if 1 comment show it only with no View more comments button
+3.if more than 1 then oppen a sheet from right just below the post.
+Sheet ui
+it will have a crete ocmment logic in the bottom on the top it will shwo the ocmmend as well.
+
+
+description ui 
+1.description is guaranted
+
+2.if description is > 70  append ... and a readmore button 
+
+
+3.if desceiption is < 70 show the entire description.
+
+
+
+Chat ui
+1. On click to sheet button we will display a sheet from right sidecovering 80 percentage.
+2. from the phone ss get an idea
+3.so 
+
+
+final pseudocode for chat
+1.Nisha wants to chat with praman.She clicks the praman message button.we emitt he registerUser event in the back and we intitlaize the userId to the mappign sytem where it lcoates the socket id.
+2.
+
+message =     { message: string; senderId: string; receiverId: string }
+message = message[]
+
+
+data = [18,23,3,43,1,2,3,46,32]
+
+
+online status ui and logic
+
+ui
+friendsTab
+defulat will be grey dot on the right bottom corner 
+if online a green dot 
+indiviudal chat
+defualt offline 
+if online it switches to online 
+
+logic
+so on succesful rfgster we wil emit onlien eevtna dn on succesful logout we will emit offline evnt to the userid
+
+
+
+
+
+logic to blend status witht he query 
+
+1.request to /api/friends-status
+2.the controller gets all the friends ids \
+
+
+
+
+
+
+
+
+
+online and offlien logic
+online
+create socket instance when .connect and emit registerEvent
+
+1.when the layout code is ufn (authencated && sessionid is vlaible) and if he is online
+
+
+
+
+offline
+disonnect instance .dissonnect and eit unregister user wehn 
+1.manual log out
+2.befor unload event 
+3.when offline 
+
+
+
+
+
+
+
+obejctive how to implement online and offline wiht reddis 
+
+1.resiter user when session is created.Have a flag this on once the code is fired and upon called in same session it wont do that 
+
+
+we will impelemtn hearbeat and on signout remove thing for rmeoving 
+
+
+
+
+1.we fetach initial status of the user
+2.if any user unregister then we emit went offline event else we emit came online event 
+
+
+
+
+
+chat box 
+we will have two chats 
+on top we have past conversations 
+on bottom we have current conversations 
+
+1.normal conversations are by default show up as expected so whever the user compeonent unmounts the current conversation will be send back as post request to the supbase 
+2.we will manage the getting the messages usign the react qwueyr usequery for efficent cahing adn all 
+
+
+datastructure
+chat {
+  id: udid,
+  senderId: refences the user,
+  receiverId: refences the user,
+  message,
+  created_At
+}
+
+1s = 1000ms 
+xs = 3456ms
+
+
+
+past chats 
+
+
+
+help and uspport with the chatbot
+1.user clicks on the help and support 
+2.we load up the indicual chat with the user data and all so for this speicif compeennt on the abckend we wil deal with it usign chatbot 
+3.
