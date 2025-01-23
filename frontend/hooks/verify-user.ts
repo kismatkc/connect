@@ -26,12 +26,7 @@ export default function useVerifyUser() {
         ...user.data,
 
         redirect: false,
-      });
-
-      console.log("before pusing", router);
-      router.refresh();
-      router.push("/");
-      console.log("after pusing", router);
+      }).then(() => router.push("/"));
     },
 
     onError: () => {
