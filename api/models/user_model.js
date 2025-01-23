@@ -1,4 +1,4 @@
-import { supabase } from "../lib/database.ts";
+import { supabase } from "../lib/database.js";
 import bcrypt from "bcrypt";
 const userModel = {
     create: async (userDetails) => {

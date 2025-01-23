@@ -1,7 +1,7 @@
 import express from "express";
-import userController from "../controllers/user_controller.ts";
+import userController from "../controllers/user_controller.js";
 const router = express.Router();
-import formDataResolver from "../lib/form-data-resolver.ts";
+import formDataResolver from "../lib/form-data-resolver.js";
 router.post("/create_user", userController.create);
 router.post("/verify_user", userController.verify);
 router.get("/get-searched-friends", userController.getPeople);

@@ -1,7 +1,7 @@
-import userModel from "../models/user_model.ts";
+import userModel from "../models/user_model.js";
 import sharp from "sharp";
-import { deletePictures, uploadPicture, } from "../lib/picture-supabase-utils.ts";
-import support from "../lib/get-support.ts";
+import { deletePictures, uploadPicture, } from "../lib/picture-supabase-utils.js";
+import support from "../lib/get-support.js";
 const userController = {
     create: async (req, res) => {
         try {

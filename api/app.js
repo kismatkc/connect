@@ -1,11 +1,11 @@
 import express, { json } from "express";
 import userRoutes from "./routes/user_routes.js";
 import cors from "cors";
-import { corsOptions } from "./lib/utils.ts";
+import { corsOptions } from "./lib/utils.js";
 import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { Redis } from "./lib/redis.ts";
+import { Redis } from "./lib/redis.js";
 const app = express();
 const PORT = 4000;
 app.use(cors(corsOptions()));

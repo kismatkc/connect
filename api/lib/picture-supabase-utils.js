@@ -1,5 +1,5 @@
-import { supabase } from "./database.ts";
-import { getAfterKeywordText } from "./utils.ts";
+import { supabase } from "./database.js";
+import { getAfterKeywordText } from "./utils.js";
 export const uploadPicture = async (fileName, buffer) => {
     try {
         const bucketName = "posts_pictures";
