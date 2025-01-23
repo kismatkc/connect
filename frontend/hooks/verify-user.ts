@@ -21,13 +21,12 @@ export default function useVerifyUser() {
 
   return useMutation({
     mutationFn: verifyUser,
-    onSuccess: async (user, variables) => {
-      const resposne = await signIn("credentials", {
+    onSuccess: (user, variables) => {
+      signIn("credentials", {
         ...user.data,
 
         redirect: false,
       }).then(() => {
-        router.refresh();
         router.push("/");
       });
     },
