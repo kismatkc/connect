@@ -25,9 +25,11 @@ export default function useVerifyUser() {
       const resposne = await signIn("credentials", {
         ...user.data,
 
-        redirect: true,
+        redirect: false,
       });
+      router.push("/");
     },
+
     onError: () => {
       toast.error("Error verifying credentials");
     },
