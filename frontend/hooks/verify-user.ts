@@ -26,7 +26,10 @@ export default function useVerifyUser() {
         ...user.data,
 
         redirect: false,
-      }).then(() => router.push("/"));
+      }).then(() => {
+        router.refresh();
+        router.push("/");
+      });
     },
 
     onError: () => {
