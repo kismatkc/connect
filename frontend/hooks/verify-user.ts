@@ -27,10 +27,11 @@ export default function useVerifyUser() {
 
         redirect: false,
       });
-      console.log("before pusing");
 
+      console.log("before pusing", router);
+      router.refresh();
       router.push("/");
-      console.log("after pusing");
+      console.log("after pusing", router);
     },
 
     onError: () => {
