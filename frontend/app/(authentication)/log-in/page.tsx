@@ -15,8 +15,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 // Regular expression for validating email
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -40,7 +38,6 @@ const formSchema = z.object({
 });
 
 const LogIn = () => {
-  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,13 +47,6 @@ const LogIn = () => {
   });
   const { mutate: verifyUser, error } = useVerifyUser();
   const { isValid } = form.formState;
-  const { status } = useSession();
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/");
-    }
-  }, [status, router]);
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
