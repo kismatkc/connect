@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import { SignInForm } from "@/types/index";
 import { Api } from "@/lib/axios-utils";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const verifyUser = async (input: SignInForm) => {
   try {
@@ -17,8 +16,6 @@ const verifyUser = async (input: SignInForm) => {
 };
 
 export default function useVerifyUser() {
-  const router = useRouter();
-
   return useMutation({
     mutationFn: verifyUser,
     onSuccess: (user, variables) => {
@@ -26,8 +23,6 @@ export default function useVerifyUser() {
         ...user.data,
 
         redirect: false,
-      }).then(() => {
-        router.push("/");
       });
     },
 
