@@ -11,6 +11,8 @@ const SocketManager = ({ children }: { children: ReactNode }) => {
     if (!session?.user.id) return;
 
     socketInstance.connect();
+    console.log("socket", socketInstance.id);
+
     socketInstance.emit("registerUser", { senderId: session.user.id });
 
     const userLeaving = () => {
