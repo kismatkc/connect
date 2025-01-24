@@ -7,7 +7,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { Redis } from "./lib/redis.js";
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000; // Use the port provided by Render
 app.use(cors(corsOptions()));
 app.use(cookieParser());
 const httpServer = createServer(app);
