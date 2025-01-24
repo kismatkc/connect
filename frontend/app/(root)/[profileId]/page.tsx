@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notifications } from "@/lib/axios-utils";
 
 // import { Avatar, AvatarImage } from "@/components/ui/avatar";
+//test
 import { Clock2Icon, GraduationCapIcon, HomeIcon } from "lucide-react";
 
 import Posts from "@/components/posts";
