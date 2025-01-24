@@ -93,25 +93,26 @@ const AutoGrowTextarea = ({
           message: trimmedMessage,
         });
 
-        await createMessages({
+        createMessages({
           message: trimmedMessage,
           senderId,
           receiverId,
           created_at: new Date(),
         });
+      } else {
+        const response = await getSupport(trimmedMessage);
+        const messageDetails = {
+          message: normalizeInput(response),
+          senderId: receiverId as string,
+          receiverId: senderId as string,
+          created_at: new Date(),
+        };
+        setMessages(messageDetails);
       }
 
       // Clear the message
       setMessage("");
       textareaRef.current!.style.height = "auto";
-      const response = await getSupport(trimmedMessage);
-      const messageDetails = {
-        message: normalizeInput(response),
-        senderId: receiverId as string,
-        receiverId: senderId as string,
-        created_at: new Date(),
-      };
-      setMessages(messageDetails);
     } catch (error: any) {
       toast.error(error.message || "Failed to send the message");
     }
