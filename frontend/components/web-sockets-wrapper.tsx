@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useLayoutEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { socketInstance } from "@/lib/web-sockets";
 
@@ -11,7 +11,6 @@ const SocketManager = ({ children }: { children: ReactNode }) => {
     if (!session?.user.id) return;
 
     socketInstance.connect();
-    console.log("socket", socketInstance.id);
 
     socketInstance.emit("registerUser", { senderId: session.user.id });
 

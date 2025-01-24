@@ -35,7 +35,6 @@ async function createMessages(message: {
     return false;
   }
 }
-const handleIncomingMessage = (message: string) => {};
 const AutoGrowTextarea = ({
   placeholder,
   senderId,
@@ -85,9 +84,12 @@ const AutoGrowTextarea = ({
         receiverId,
         created_at: new Date(),
       });
+      setMessage("");
 
       // Save to backend
       if (!(process.env.NEXT_PUBLIC_BOTUUID === receiverId)) {
+        console.log("not bot", process.env.NEXT_PUBLIC_BOTUUID, receiverId);
+
         socketInstance.emit("sendMessage", {
           receiverId,
           message: trimmedMessage,
@@ -100,6 +102,8 @@ const AutoGrowTextarea = ({
           created_at: new Date(),
         });
       } else {
+        console.log(" bot", process.env.NEXT_PUBLIC_BOTUUID, receiverId);
+
         const response = await getSupport(trimmedMessage);
         const messageDetails = {
           message: normalizeInput(response),
@@ -111,7 +115,7 @@ const AutoGrowTextarea = ({
       }
 
       // Clear the message
-      setMessage("");
+
       textareaRef.current!.style.height = "auto";
     } catch (error: any) {
       toast.error(error.message || "Failed to send the message");
