@@ -14,7 +14,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: corsOptions(),
 });
-//test for render
+//test for
 io.on("connection", (socket) => {
   console.log(socket.id);
 
