@@ -7,7 +7,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { Redis } from "./lib/redis.js";
 const app = express();
-const PORT = process.env.PORT || 4000; // Use the port provided by Render
+const port = process.env.PORT || 4000;
 app.use(cors(corsOptions()));
 app.use(cookieParser());
 const httpServer = createServer(app);
@@ -86,6 +86,6 @@ app.use("/api", userRoutes);
 app.get("/", (req, res) => {
   res.send("Hello from the connect backend");
 });
-httpServer.listen(PORT, () => {
+httpServer.listen(port, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
