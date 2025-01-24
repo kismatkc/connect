@@ -87,5 +87,5 @@ app.get("/", (req, res) => {
   res.send("Hello from the connect backend");
 });
 httpServer.listen(port, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
